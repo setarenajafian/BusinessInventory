@@ -74,12 +74,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="Data\" />
 	  <Folder Include="Helpers\" />
 	  <Folder Include="Views\" />
 	  <Folder Include="ViewModels\" />
-	  <Folder Include="Services\" />
 	</ItemGroup>
 
 </Project>
