@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusinessInventory.Views.ProductsPage"
+             Title="Products">
+    <Grid RowDefinitions="Auto,*">
+
+        <Button
+            Margin="10"
+            Text="Add Product"/>
+
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding Products}">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Frame Margin="10">
+
+                        <VerticalStackLayout>
+
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="{Binding Name}" />
+
+                            <Label
+                                Text="{Binding Quantity,
+                                       StringFormat='Quantity: {0}'}"/>
+
+                            <Label
+                                Text="{Binding Price,
+                                       StringFormat='Price: {0}'}"/>
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

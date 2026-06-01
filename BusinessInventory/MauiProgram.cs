@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using BusinessInventory.Services;
+using BusinessInventory.ViewModels;
+using BusinessInventory.Views;
 namespace BusinessInventory;
 
 public static class MauiProgram
@@ -18,6 +20,8 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+        builder.Services.AddSingleton<ProductsViewModel>();
+        builder.Services.AddSingleton<ProductsPage>();
         builder.Services.AddSingleton<DatabaseService>();
 
         return builder.Build();
