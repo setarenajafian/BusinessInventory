@@ -1,9 +1,34 @@
+using BusinessInventory.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace BusinessInventory.Views;
 
 public partial class ProductsPage : ContentPage
 {
-	public ProductsPage()
-	{
+    private readonly ProductsViewModel _viewModel;
+
+    public ProductsPage(ProductsViewModel viewModel)
+    {
         InitializeComponent();
-	}
+
+        BindingContext = viewModel;
+        _viewModel = viewModel;
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        await _viewModel.LoadProductsAsync();
+    }
+
+    private async void OnAddProductClicked(object sender, EventArgs e)
+    {
+        var page =
+            IPlatformApplication.Current!
+            .Services
+            .GetRequiredService<AddProductPage>();
+
+        await Navigation.PushAsync(page);
+    }
 }

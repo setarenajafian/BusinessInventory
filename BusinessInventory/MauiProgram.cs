@@ -23,6 +23,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProductsViewModel>();
         builder.Services.AddSingleton<ProductsPage>();
         builder.Services.AddSingleton<DatabaseService>();
+        builder.Services.AddSingleton<ProductService>();
+        builder.Services.AddSingleton<AddProductViewModel>();
+        builder.Services.AddSingleton<AddProductPage>();
 
         return builder.Build();
     }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusinessInventory.Views.AddProductPage"
+             Title="Add Product">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="10">
+
+            <Entry
+                Placeholder="Name"
+                Text="{Binding Name}" />
+
+            <Entry
+                Placeholder="Barcode"
+                Text="{Binding Barcode}" />
+
+            <Entry
+                Placeholder="Price"
+                Keyboard="Numeric"
+                Text="{Binding Price}" />
+
+            <Entry
+                Placeholder="Quantity"
+                Keyboard="Numeric"
+                Text="{Binding Quantity}" />
+
+            <Entry
+                Placeholder="Minimum Stock"
+                Keyboard="Numeric"
+                Text="{Binding MinimumStock}" />
+            
+            <Editor
+                HeightRequest="100"
+                Placeholder="Description"
+                Text="{Binding Description}" />
+
+            <Button
+                Command="{Binding SaveCommand}"
+                Text="Save Product" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessInventory.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BusinessInventory;
 
@@ -13,6 +14,10 @@ public partial class App : Application
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        return new Window(new AppShell());
+        return new Window(
+         new NavigationPage(
+         IPlatformApplication.Current!
+         .Services
+         .GetRequiredService<ProductsPage>()));
     }
 }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BusinessInventory.Views.ProductsPage"
              Title="Products">
+    
     <Grid RowDefinitions="Auto,*">
 
         <Button
@@ -16,7 +17,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
-                    <Frame Margin="10">
+                    <Border Margin="10">
 
                         <VerticalStackLayout>
 
@@ -32,9 +33,14 @@
                             <Label
                                 Text="{Binding Price,
                                        StringFormat='Price: {0}'}"/>
+                             
+                            <Button
+                                Margin="10"
+                                Text="Add Product"
+                                Clicked="OnAddProductClicked"/>
                         </VerticalStackLayout>
 
-                    </Frame>
+                    </Border>
 
                 </DataTemplate>
             </CollectionView.ItemTemplate>
