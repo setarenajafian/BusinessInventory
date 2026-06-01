@@ -7,13 +7,13 @@ namespace BusinessInventory.ViewModels;
 
 public partial class ProductsViewModel
 {
-    private readonly DatabaseService _databaseService;
+    private readonly ProductService _productService;
 
     public ObservableCollection<Product> Products { get; } = new();
 
-    public ProductsViewModel(DatabaseService databaseService)
+    public ProductsViewModel(ProductService productService)
     {
-        _databaseService = databaseService;
+        _productService = productService;
     }
 
     [RelayCommand]
@@ -21,7 +21,8 @@ public partial class ProductsViewModel
     {
         Products.Clear();
 
-        var products = await _databaseService.Database.GetProductsAsync();
+        var products =
+        await _productService.GetAllAsync();
 
         foreach (var product in products)
         {

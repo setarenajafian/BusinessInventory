@@ -20,4 +20,7 @@ public class Product
     public int MinimumStock { get; set; }
 
     public string Description { get; set; } = string.Empty;
+
+    [Ignore]
+    public bool IsLowStock => Quantity <= MinimumStock;
 }

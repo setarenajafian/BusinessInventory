@@ -16,9 +16,9 @@ public partial class ProductsPage : ContentPage
     }
     private async void OnAddProductClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Test", "Button Clicked", "OK"); 
+        await DisplayAlert("Test", "Button Clicked", "OK");
 
-        var page = IPlatformApplication.Current!.Services.GetRequiredService<AddProductPage>(); 
+        var page = IPlatformApplication.Current!.Services.GetRequiredService<AddProductPage>();
 
         await Navigation.PushAsync(page);
     }

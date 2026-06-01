@@ -21,12 +21,16 @@
 
                     <Border Margin="10">
 
-                        <VerticalStackLayout>
+                        <VerticalStackLayout Spacing="4">
 
                             <Label
                                 FontAttributes="Bold"
-                                FontSize="18"
+                                FontSize="20"
                                 Text="{Binding Name}" />
+
+                            <Label
+                                Text="{Binding Barcode,
+                                       StringFormat='Barcode: {0}'}"/>
 
                             <Label
                                 Text="{Binding Quantity,
