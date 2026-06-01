@@ -14,6 +14,14 @@ public partial class ProductsPage : ContentPage
         BindingContext = viewModel;
         _viewModel = viewModel;
     }
+    private async void OnAddProductClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Test", "Button Clicked", "OK"); 
+
+        var page = IPlatformApplication.Current!.Services.GetRequiredService<AddProductPage>(); 
+
+        await Navigation.PushAsync(page);
+    }
 
     protected override async void OnAppearing()
     {
@@ -22,13 +30,5 @@ public partial class ProductsPage : ContentPage
         await _viewModel.LoadProductsAsync();
     }
 
-    private async void OnAddProductClicked(object sender, EventArgs e)
-    {
-        var page =
-            IPlatformApplication.Current!
-            .Services
-            .GetRequiredService<AddProductPage>();
-
-        await Navigation.PushAsync(page);
-    }
+    
 }

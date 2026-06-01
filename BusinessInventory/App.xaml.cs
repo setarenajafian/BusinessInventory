@@ -16,8 +16,8 @@ public partial class App : Application
     {
         return new Window(
          new NavigationPage(
-         IPlatformApplication.Current!
-         .Services
-         .GetRequiredService<ProductsPage>()));
+            IPlatformApplication.Current!
+            .Services
+            .GetRequiredService<ProductsPage>()));
     }
 }

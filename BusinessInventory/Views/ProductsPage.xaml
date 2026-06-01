@@ -6,9 +6,11 @@
     
     <Grid RowDefinitions="Auto,*">
 
+        
         <Button
             Margin="10"
-            Text="Add Product"/>
+            Text="Add Product"
+            Clicked="OnAddProductClicked"/>
 
         <CollectionView
             Grid.Row="1"
@@ -34,10 +36,7 @@
                                 Text="{Binding Price,
                                        StringFormat='Price: {0}'}"/>
                              
-                            <Button
-                                Margin="10"
-                                Text="Add Product"
-                                Clicked="OnAddProductClicked"/>
+                            
                         </VerticalStackLayout>
 
                     </Border>

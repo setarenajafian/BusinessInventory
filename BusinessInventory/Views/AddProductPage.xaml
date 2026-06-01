@@ -18,21 +18,21 @@
                 Placeholder="Barcode"
                 Text="{Binding Barcode}" />
 
+            <Label Text="Price"/>
             <Entry
-                Placeholder="Price"
                 Keyboard="Numeric"
                 Text="{Binding Price}" />
 
+            <Label Text="Quantity"/>
             <Entry
-                Placeholder="Quantity"
                 Keyboard="Numeric"
                 Text="{Binding Quantity}" />
 
+            <Label Text="Minimum Stock"/>
             <Entry
-                Placeholder="Minimum Stock"
                 Keyboard="Numeric"
                 Text="{Binding MinimumStock}" />
-            
+
             <Editor
                 HeightRequest="100"
                 Placeholder="Description"
