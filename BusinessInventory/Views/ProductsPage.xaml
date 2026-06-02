@@ -1,46 +1,82 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BusinessInventory.Views.ProductsPage"
-             Title="Products">
-    
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BusinessInventory.Views.ProductsPage"
+    Title="Products">
+
     <Grid RowDefinitions="Auto,*">
 
-        
+        <!-- Add Product Button -->
         <Button
+            Grid.Row="0"
             Margin="10"
             Text="Add Product"
-            Clicked="OnAddProductClicked"/>
+            Clicked="OnAddProductClicked" />
 
+        <!-- Products List -->
         <CollectionView
             Grid.Row="1"
-            ItemsSource="{Binding Products}">
+            ItemsSource="{Binding Products}"
+            Margin="10">
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="No products found"
+                        FontSize="18" />
+
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
-                    <Border Margin="10">
+                    <Border
+                        StrokeThickness="1"
+                        Padding="12"
+                        Margin="0,0,0,10">
 
-                        <VerticalStackLayout Spacing="4">
+                        <VerticalStackLayout Spacing="6">
 
                             <Label
-                                FontAttributes="Bold"
+                                Text="{Binding Name}"
                                 FontSize="20"
-                                Text="{Binding Name}" />
+                                FontAttributes="Bold" />
 
                             <Label
-                                Text="{Binding Barcode,
-                                       StringFormat='Barcode: {0}'}"/>
+                                Text="{Binding Barcode, StringFormat='Barcode: {0}'}" />
 
                             <Label
-                                Text="{Binding Quantity,
-                                       StringFormat='Quantity: {0}'}"/>
+                                Text="{Binding Quantity, StringFormat='Quantity: {0}'}" />
 
                             <Label
-                                Text="{Binding Price,
-                                       StringFormat='Price: {0}'}"/>
-                             
-                            
+                                Text="{Binding Price, StringFormat='Price: {0}'}" />
+
+                            <Label
+                                Text="{Binding MinimumStock, StringFormat='Minimum Stock: {0}'}" />
+
+                            <Label
+                                Text="{Binding Description}" />
+
+                            <HorizontalStackLayout
+                                Margin="0,8,0,0"
+                                Spacing="10">
+
+                                <Button
+                                    Text="Edit"
+                                    Clicked="OnEditClicked" />
+
+                                <Button
+                                    Text="Delete"
+                                    Clicked="OnDeleteClicked" />
+
+                            </HorizontalStackLayout>
+
                         </VerticalStackLayout>
 
                     </Border>
@@ -51,4 +87,5 @@
         </CollectionView>
 
     </Grid>
+
 </ContentPage>

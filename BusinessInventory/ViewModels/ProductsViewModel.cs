@@ -1,11 +1,12 @@
 ﻿using BusinessInventory.Models;
 using BusinessInventory.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 
 namespace BusinessInventory.ViewModels;
 
-public partial class ProductsViewModel
+public partial class ProductsViewModel : ObservableObject
 {
     private readonly ProductService _productService;
 

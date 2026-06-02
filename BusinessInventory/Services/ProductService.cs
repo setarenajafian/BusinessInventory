@@ -20,4 +20,14 @@ public class ProductService
     {
         await _databaseService.Database.AddProductAsync(product);
     }
+
+    public async Task UpdateAsync(Product product)
+    {
+        await _databaseService.Database.UpdateProductAsync(product);
+    }
+
+    public async Task DeleteAsync(Product product)
+    {
+        await _databaseService.Database.DeleteProductAsync(product);
+    }
 }

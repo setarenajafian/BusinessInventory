@@ -12,5 +12,7 @@ public class DatabaseService
             "business_inventory.db");
 
         Database = new AppDatabase(dbPath);
+
+        System.Diagnostics.Debug.WriteLine(dbPath);
     }
 }

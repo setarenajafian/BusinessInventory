@@ -1,3 +1,4 @@
+using BusinessInventory.Models;
 using BusinessInventory.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +22,26 @@ public partial class ProductsPage : ContentPage
         var page = IPlatformApplication.Current!.Services.GetRequiredService<AddProductPage>();
 
         await Navigation.PushAsync(page);
+    }
+
+    private async void OnDeleteClicked(object sender, EventArgs e)
+    {
+        if (sender is not Button button)
+            return;
+
+        if (button.BindingContext is not Product product)
+            return;
+
+        bool result = await DisplayAlert(
+            "Delete Product",
+            $"Delete '{product.Name}' ?",
+            "Yes",
+            "No");
+
+        if (!result)
+            return;
+
+        
     }
 
     protected override async void OnAppearing()
