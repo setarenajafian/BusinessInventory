@@ -1,4 +1,5 @@
 using BusinessInventory.Models;
+using BusinessInventory.Services;
 using BusinessInventory.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,13 +8,19 @@ namespace BusinessInventory.Views;
 public partial class ProductsPage : ContentPage
 {
     private readonly ProductsViewModel _viewModel;
+    private readonly ProductService _productService;
 
-    public ProductsPage(ProductsViewModel viewModel)
+
+    public ProductsPage(
+    ProductsViewModel viewModel,
+    ProductService productService)
     {
         InitializeComponent();
 
         BindingContext = viewModel;
+
         _viewModel = viewModel;
+        _productService = productService;
     }
     private async void OnAddProductClicked(object sender, EventArgs e)
     {
@@ -41,7 +48,14 @@ public partial class ProductsPage : ContentPage
         if (!result)
             return;
 
-        
+        await _productService.DeleteAsync(product);
+
+        await _viewModel.LoadProductsAsync();
+
+        await DisplayAlert(
+            "Success",
+            "Product deleted successfully.",
+            "OK");
     }
 
     protected override async void OnAppearing()

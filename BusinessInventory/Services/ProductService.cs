@@ -28,6 +28,6 @@ public class ProductService
 
     public async Task DeleteAsync(Product product)
     {
-        await _databaseService.Database.DeleteProductAsync(product);
+        await _databaseService.Database.DeleteProductAsync(product.Id);
     }
 }

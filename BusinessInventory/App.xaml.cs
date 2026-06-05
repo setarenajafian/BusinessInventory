@@ -1,4 +1,5 @@
-﻿using BusinessInventory.Views;
+﻿using BusinessInventory.Services;
+using BusinessInventory.Views;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BusinessInventory;
@@ -6,9 +7,14 @@ namespace BusinessInventory;
 public partial class App : Application
 {
 
-    public App()
+   
+
+
+    public App(DatabaseService databaseService)
     {
         InitializeComponent();
+
+        
     }
 
 

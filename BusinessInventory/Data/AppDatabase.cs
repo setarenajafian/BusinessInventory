@@ -33,8 +33,9 @@ public class AppDatabase
         return _database.UpdateAsync(product);
     }
 
-    public Task<int> DeleteProductAsync(Product product)
+    public Task<int> DeleteProductAsync(int productId)
     {
-        return _database.DeleteAsync(product);
+        return _database.Table<Product>()
+            .DeleteAsync(x => x.Id == productId);
     }
 }

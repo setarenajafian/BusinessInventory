@@ -67,10 +67,7 @@
                                 Margin="0,8,0,0"
                                 Spacing="10">
 
-                                <Button
-                                    Text="Edit"
-                                    Clicked="OnEditClicked" />
-
+                                
                                 <Button
                                     Text="Delete"
                                     Clicked="OnDeleteClicked" />
