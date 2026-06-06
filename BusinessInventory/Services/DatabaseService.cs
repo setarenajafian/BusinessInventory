@@ -9,7 +9,7 @@ public class DatabaseService
     {
         string dbPath = Path.Combine(
             FileSystem.AppDataDirectory,
-            "business_inventory.db");
+            "business_inventory_v2.db");
 
         Database = new AppDatabase(dbPath);
 

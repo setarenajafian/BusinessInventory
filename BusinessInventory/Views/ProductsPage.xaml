@@ -61,6 +61,12 @@
                                 Text="{Binding MinimumStock, StringFormat='Minimum Stock: {0}'}" />
 
                             <Label
+                                Text="⚠ Low Stock"
+                                TextColor="OrangeRed"
+                                FontAttributes="Bold"
+                                IsVisible="{Binding IsLowStock}" />     
+
+                            <Label
                                 Text="{Binding Description}" />
 
                             <HorizontalStackLayout

@@ -23,7 +23,7 @@ public partial class ProductsViewModel : ObservableObject
         Products.Clear();
 
         var products =
-        await _productService.GetAllAsync();
+            await _productService.GetAllAsync();
 
         foreach (var product in products)
         {

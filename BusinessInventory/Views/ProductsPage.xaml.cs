@@ -47,6 +47,11 @@ public partial class ProductsPage : ContentPage
         if (!result)
             return;
 
+        await DisplayAlert(
+        "Debug",
+        $"Id = {product.Id} | Name = {product.Name}",
+        "OK");
+
         await _productService.DeleteAsync(product);
 
         await _viewModel.LoadProductsAsync();
