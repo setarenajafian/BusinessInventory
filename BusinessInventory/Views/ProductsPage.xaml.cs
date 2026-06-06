@@ -24,7 +24,6 @@ public partial class ProductsPage : ContentPage
     }
     private async void OnAddProductClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Test", "Button Clicked", "OK");
 
         var page = IPlatformApplication.Current!.Services.GetRequiredService<AddProductPage>();
 
@@ -56,6 +55,25 @@ public partial class ProductsPage : ContentPage
             "Success",
             "Product deleted successfully.",
             "OK");
+    }
+
+    private async void OnEditClicked(object sender, EventArgs e)
+    {
+        if (sender is not Button button)
+            return;
+
+        if (button.BindingContext is not Product product)
+            return;
+
+        var vm = IPlatformApplication.Current!
+        .Services
+        .GetRequiredService<EditProductViewModel>();
+
+        vm.LoadProduct(product);
+
+        var page = new EditProductPage(vm);
+
+        await Navigation.PushAsync(page);
     }
 
     protected override async void OnAppearing()

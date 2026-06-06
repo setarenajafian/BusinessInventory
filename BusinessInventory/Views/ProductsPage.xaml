@@ -68,9 +68,13 @@
                                 Spacing="10">
 
                                 
-                                <Button
-                                    Text="Delete"
-                                    Clicked="OnDeleteClicked" />
+                                    <Button
+                                        Text="Delete"
+                                        Clicked="OnDeleteClicked" />
+
+                                    <Button
+                                        Text="Edit"
+                                        Clicked="OnEditClicked" />
 
                             </HorizontalStackLayout>
 

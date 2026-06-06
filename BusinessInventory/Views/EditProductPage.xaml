@@ -39,7 +39,7 @@
                 Text="{Binding Description}" />
 
             <Button
-                Command="{Binding SaveCommand}"
+                Command="{Binding UpdateCommand}"
                 Text="Update Product" />
 
         </VerticalStackLayout>

@@ -1,18 +1,14 @@
-﻿
-using BusinessInventory.Models;
+﻿using BusinessInventory.Models;
 using BusinessInventory.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ZXing.QrCode.Internal;
-
 
 namespace BusinessInventory.ViewModels;
 
 public partial class EditProductViewModel : ObservableObject
 {
     private readonly ProductService _productService;
-
-    private Product _product;
+    private Product _product = null!;
 
     [ObservableProperty]
     private string name = string.Empty;
@@ -37,7 +33,7 @@ public partial class EditProductViewModel : ObservableObject
         _productService = productService;
     }
 
-    public void Load(Product product)
+    public void LoadProduct(Product product)
     {
         _product = product;
 
@@ -50,7 +46,7 @@ public partial class EditProductViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task SaveAsync()
+    private async Task UpdateAsync()
     {
         _product.Name = Name;
         _product.Barcode = Barcode;
@@ -64,7 +60,7 @@ public partial class EditProductViewModel : ObservableObject
         await Application.Current!.Windows[0].Page!
             .DisplayAlert(
                 "Success",
-                "Product updated successfully",
+                "Product updated successfully.",
                 "OK");
 
         await Application.Current!.Windows[0].Page!
