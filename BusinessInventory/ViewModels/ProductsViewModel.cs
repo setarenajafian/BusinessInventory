@@ -10,11 +10,37 @@ public partial class ProductsViewModel : ObservableObject
 {
     private readonly ProductService _productService;
 
+    [ObservableProperty]
+    private string searchText = string.Empty;
+
     public ObservableCollection<Product> Products { get; } = new();
+
+    private List<Product> _allProducts = new();
 
     public ProductsViewModel(ProductService productService)
     {
         _productService = productService;
+    }
+
+    partial void OnSearchTextChanged(string value)
+    {
+        Products.Clear();
+
+        var filteredProducts = _allProducts
+            .Where(x =>
+                x.Name.Contains(
+                    value,
+                    StringComparison.OrdinalIgnoreCase)
+                ||
+                x.Barcode.Contains(
+                    value,
+                    StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+        foreach (var product in filteredProducts)
+        {
+            Products.Add(product);
+        }
     }
 
     [RelayCommand]
@@ -22,13 +48,12 @@ public partial class ProductsViewModel : ObservableObject
     {
         Products.Clear();
 
-        var products =
+        _allProducts =
             await _productService.GetAllAsync();
 
-        foreach (var product in products)
+        foreach (var product in _allProducts)
         {
             Products.Add(product);
         }
     }
-
 }

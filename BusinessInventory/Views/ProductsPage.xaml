@@ -6,18 +6,24 @@
     x:Class="BusinessInventory.Views.ProductsPage"
     Title="Products">
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <SearchBar
+            Grid.Row="0"
+            Margin="10"
+            Placeholder="Search products..."
+            Text="{Binding SearchText}" />
 
         <!-- Add Product Button -->
         <Button
-            Grid.Row="0"
+            Grid.Row="1"
             Margin="10"
             Text="Add Product"
             Clicked="OnAddProductClicked" />
 
         <!-- Products List -->
         <CollectionView
-            Grid.Row="1"
+            Grid.Row="2"
             ItemsSource="{Binding Products}"
             Margin="10">
 
