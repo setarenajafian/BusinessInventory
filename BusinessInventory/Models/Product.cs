@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using Microsoft.Maui.Graphics;
 
 namespace BusinessInventory.Models;
 
@@ -23,4 +24,16 @@ public class Product
 
     [Ignore]
     public bool IsLowStock => Quantity <= MinimumStock;
+
+    [Ignore]
+    public Color BorderColor =>
+    IsLowStock ? Colors.Red : Colors.Gray;
+
+    [Ignore]
+    public Color BackgroundColor =>
+    IsLowStock
+        ? Color.FromArgb("#2B0000")
+        : Colors.Transparent;
+
+
 }
