@@ -17,6 +17,15 @@ public partial class ProductsViewModel : ObservableObject
 
     private List<Product> _allProducts = new();
 
+    [ObservableProperty]
+    private int totalProducts;
+
+    [ObservableProperty]
+    private int lowStockProducts;
+
+    [ObservableProperty]
+    private decimal totalInventoryValue;
+
     public ProductsViewModel(ProductService productService)
     {
         _productService = productService;
@@ -50,6 +59,14 @@ public partial class ProductsViewModel : ObservableObject
 
         _allProducts =
             await _productService.GetAllAsync();
+
+        TotalProducts = _allProducts.Count;
+
+        LowStockProducts =
+            _allProducts.Count(x => x.IsLowStock);
+
+        TotalInventoryValue =
+            _allProducts.Sum(x => x.Price * x.Quantity);
 
         foreach (var product in _allProducts)
         {
