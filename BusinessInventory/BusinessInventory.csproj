@@ -72,6 +72,7 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="SQLite.Net-PCL.MEDIC" Version="3.1.1" />
 		<PackageReference Include="ZXing.Net.Maui" Version="0.7.4" />
+		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.7.4" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -86,6 +87,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\AddProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\BarcodeScannerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\EditProductPage.xaml">

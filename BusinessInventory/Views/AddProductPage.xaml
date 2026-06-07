@@ -14,6 +14,10 @@
                 Placeholder="Name"
                 Text="{Binding Name}" />
 
+            <Button
+                Text="Scan Barcode"
+                Clicked="OnScanBarcodeClicked"/>
+
             <Entry
                 Placeholder="Barcode"
                 Text="{Binding Barcode}" />

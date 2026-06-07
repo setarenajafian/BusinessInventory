@@ -10,4 +10,15 @@ public partial class AddProductPage : ContentPage
 
         BindingContext = vm;
     }
+    private async void OnScanBarcodeClicked(
+    object sender,
+    EventArgs e)
+    {
+        var page =
+            IPlatformApplication.Current!
+            .Services
+            .GetRequiredService<BarcodeScannerPage>();
+
+        await Navigation.PushAsync(page);
+    }
 }

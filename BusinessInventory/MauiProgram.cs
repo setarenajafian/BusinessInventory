@@ -2,6 +2,8 @@
 using BusinessInventory.Services;
 using BusinessInventory.ViewModels;
 using BusinessInventory.Views;
+using ZXing.Net.Maui.Controls;
+
 namespace BusinessInventory;
 
 public static class MauiProgram
@@ -11,6 +13,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .UseBarcodeReader()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -28,6 +31,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<AddProductPage>();
         builder.Services.AddSingleton<EditProductViewModel>();
         builder.Services.AddTransient<EditProductPage>();
+        builder.Services.AddTransient<BarcodeScannerPage>();
 
         return builder.Build();
     }
