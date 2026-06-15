@@ -59,6 +59,10 @@ public partial class AddProductViewModel : ObservableObject
                 return;
             }
 
+            var products = await _productService.GetAllAsync();
+
+            string barcode = $"INV-{DateTime.UtcNow:yyyyMMddHHmmss}";
+
             var product = new Product
             {
                 Name = Name,
@@ -70,6 +74,15 @@ public partial class AddProductViewModel : ObservableObject
             };
 
             await _productService.AddAsync(product);
+
+            await Application.Current!.Windows[0].Page!
+                .DisplayAlert(
+                "Success",
+                $"Product saved.\nBarcode: {barcode}",
+                "OK");
+
+
+
 
             await Application.Current!.Windows[0].Page!
                 .DisplayAlert(

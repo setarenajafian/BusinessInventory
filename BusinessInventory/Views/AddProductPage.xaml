@@ -18,9 +18,7 @@
                 Text="Scan Barcode"
                 Clicked="OnScanBarcodeClicked"/>
 
-            <Entry
-                Placeholder="Barcode"
-                Text="{Binding Barcode}" />
+            
 
             <Label Text="Price"/>
             <Entry
