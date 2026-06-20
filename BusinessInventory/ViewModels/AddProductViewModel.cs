@@ -48,25 +48,21 @@ public partial class AddProductViewModel : ObservableObject
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(Barcode))
-            {
-                await Application.Current!.Windows[0].Page!
-                    .DisplayAlert(
-                        "Validation",
-                        "Barcode is required.",
-                        "OK");
-
-                return;
-            }
+            
 
             var products = await _productService.GetAllAsync();
 
-            string barcode = $"INV-{DateTime.UtcNow:yyyyMMddHHmmss}";
+            string barcode = Barcode;
+
+            if (string.IsNullOrWhiteSpace(barcode))
+            {
+                barcode = $"INV-{DateTime.UtcNow:yyyyMMddHHmmss}";
+            }
 
             var product = new Product
             {
                 Name = Name,
-                Barcode = Barcode,
+                Barcode = barcode,
                 Price = Price,
                 Quantity = Quantity,
                 MinimumStock = MinimumStock,

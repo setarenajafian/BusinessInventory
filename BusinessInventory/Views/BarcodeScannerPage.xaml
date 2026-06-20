@@ -9,6 +9,6 @@
         <zxing:CameraBarcodeReaderView
             x:Name="cameraView"
             BarcodesDetected="CameraView_BarcodesDetected"/>
-
+       
     </Grid>
 </ContentPage>

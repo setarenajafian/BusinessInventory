@@ -1,48 +1,133 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BusinessInventory.Views.AddProductPage"
-             Title="Add Product">
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BusinessInventory.Views.AddProductPage"
+    BackgroundColor="#F7F8FA"
+    Title="Add New Item">
 
     <ScrollView>
 
         <VerticalStackLayout
             Padding="20"
-            Spacing="10">
+            Spacing="16">
+
+            <Label
+                Text="Add New Item"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#111827" />
+
+            <Frame
+                HeightRequest="160"
+                BackgroundColor="White"
+                BorderColor="#E5E7EB"
+                CornerRadius="18">
+
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="📦"
+                        FontSize="40"
+                        HorizontalOptions="Center" />
+
+                    <Label
+                        Text="Product Image"
+                        TextColor="#6B7280" />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <Label
+                Text="PRODUCT NAME"
+                FontAttributes="Bold"
+                TextColor="#374151" />
 
             <Entry
-                Placeholder="Name"
-                Text="{Binding Name}" />
+                Placeholder="e.g. HP EliteBook"
+                Text="{Binding Name}"
+                TextColor="#111827"
+                PlaceholderColor="#9CA3AF"/>
 
-            <Button
-                Text="Scan Barcode"
-                Clicked="OnScanBarcodeClicked"/>
+            <Label
+                Text="SKU / BARCODE"
+                FontAttributes="Bold"
+                TextColor="#374151" />
 
-            
+            <Grid ColumnDefinitions="*,Auto">
 
-            <Label Text="Price"/>
+                <Entry
+                    Grid.Column="0"
+                    IsReadOnly="True"
+                    TextColor="#111827"
+                    PlaceholderColor="#9CA3AF"
+                    Placeholder="Generated Automatically"
+                    Text="{Binding Barcode}" />
+
+                <Button
+                    Grid.Column="1"
+                    Text="📷"
+                    WidthRequest="60"
+                    Clicked="OnScanBarcodeClicked" />
+
+            </Grid>
+
+            <Label
+                Text="QUANTITY"
+                FontAttributes="Bold"
+                TextColor="#374151" />
+
             <Entry
                 Keyboard="Numeric"
-                Text="{Binding Price}" />
+                Text="{Binding Quantity}"
+                TextColor="#111827"
+                PlaceholderColor="#9CA3AF"/>
 
-            <Label Text="Quantity"/>
+            <Label
+                Text="PRICE"
+                FontAttributes="Bold"
+                TextColor="#374151" />
+
             <Entry
                 Keyboard="Numeric"
-                Text="{Binding Quantity}" />
+                Text="{Binding Price}" 
+                TextColor="#111827"
+                PlaceholderColor="#9CA3AF"/>
 
-            <Label Text="Minimum Stock"/>
+            <Label
+                Text="MINIMUM STOCK"
+                FontAttributes="Bold"
+                TextColor="#374151" />
+
             <Entry
                 Keyboard="Numeric"
-                Text="{Binding MinimumStock}" />
+                Text="{Binding MinimumStock}" 
+                TextColor="#111827"
+                PlaceholderColor="#9CA3AF"/>
+
+            <Label
+                Text="DESCRIPTION"
+                FontAttributes="Bold"
+                TextColor="#374151" />
 
             <Editor
-                HeightRequest="100"
-                Placeholder="Description"
-                Text="{Binding Description}" />
+                HeightRequest="120"
+                Text="{Binding Description}"
+                TextColor="#111827"
+                PlaceholderColor="#9CA3AF"/>
 
             <Button
-                Command="{Binding SaveCommand}"
-                Text="Save Product" />
+                HeightRequest="55"
+                CornerRadius="15"
+                BackgroundColor="#C1121F"
+                TextColor="White"
+                FontAttributes="Bold"
+                Text="Save Product"
+                Command="{Binding SaveCommand}" />
 
         </VerticalStackLayout>
 

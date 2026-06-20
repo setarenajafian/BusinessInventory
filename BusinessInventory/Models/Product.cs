@@ -35,5 +35,21 @@ public class Product
         ? Color.FromArgb("#2B0000")
         : Colors.Transparent;
 
+    [Ignore]
+    public string StockStatus =>
+    Quantity <= 0
+        ? "Out Of Stock"
+        : Quantity <= MinimumStock
+            ? "Low Stock"
+            : "In Stock";
+
+    [Ignore]
+    public Color StatusColor =>
+        Quantity <= 0
+            ? Colors.Gray
+            : Quantity <= MinimumStock
+                ? Color.FromArgb("#F97316")
+                : Color.FromArgb("#22C55E");
+
 
 }

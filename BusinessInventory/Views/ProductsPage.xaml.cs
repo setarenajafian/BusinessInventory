@@ -3,6 +3,7 @@ using BusinessInventory.Services;
 using BusinessInventory.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace BusinessInventory.Views;
 
 public partial class ProductsPage : ContentPage
