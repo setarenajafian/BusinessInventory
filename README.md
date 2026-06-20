@@ -2,7 +2,7 @@
 
 # 📦 BusinessInventory
 
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
 [![MAUI](https://img.shields.io/badge/.NET%20MAUI-Cross--Platform-blueviolet)](https://learn.microsoft.com/dotnet/maui/)
 [![License](https://img.shields.io/badge/License-Educational-green.svg)](#-license)
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20Windows%20%7C%20iOS-lightgrey)](#-supported-platforms)
