@@ -61,7 +61,7 @@ This structure allows easy migration to:
 
 | Technology | Purpose |
 |---|---|
-| .NET 8 / .NET MAUI | Cross-platform app framework |
+| .NET 10 / .NET MAUI | Cross-platform app framework |
 | C# | Application logic |
 | XAML | UI markup |
 | MVVM | Architectural pattern |
