@@ -82,7 +82,7 @@ This structure allows easy migration to:
 
 ### Prerequisites
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
 - Visual Studio 2022 (with **.NET MAUI workload** installed)
 - Android Emulator or physical device (for Android builds)
 
